@@ -1,0 +1,77 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Do incremental searching.
+set incsearch
+
+set timeout
+set timeoutlen=1000
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+let mapleader = " "
+
+" Kickstart leaders
+" <leader>s  search
+" <leader>f  files
+" <leader>g  git
+" <leader>r  run/refactor
+" <leader>c  code actions
+" <leader>b  buffers/bookmarks
+
+" Search
+nnoremap <leader>sg :action FindInPath<CR>
+nnoremap <leader>sf :action GotoFile<CR>
+nnoremap <leader>ss :action GotoSymbol<CR>
+nnoremap <leader>sr :action RecentFiles<CR>
+nnoremap <leader>sa :action GotoAction<CR>
+
+" Code
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gr :action FindUsages<CR>
+nnoremap K  :action QuickJavaDoc<CR>
+
+" Refactor / code actions
+nnoremap <leader>rn :action RenameElement<CR>
+nnoremap <leader>ca :action ShowIntentionActions<CR>
+nnoremap <leader>cf :action ReformatCode<CR>
+
+" Bookmarks / Harpoon-lite
+nnoremap <leader>m :action ToggleBookmark<CR>
+nnoremap <leader>b :action ShowBookmarks<CR>
+
+" Files / project
+nnoremap <leader>e  :action ActivateProjectToolWindow<CR>
+nnoremap <leader>ff :action GotoFile<CR>
+nnoremap <leader>fg :action FindInPath<CR>
+nnoremap <leader>fb :action RecentFiles<CR>
+
+" Git
+nnoremap <leader>gs :action Vcs.Show.Local.Changes<CR>
+nnoremap <leader>gb :action Annotate<CR>
+nnoremap <leader>gc :action CheckinProject<CR>
+
+" Run / debug
+nnoremap <leader>rr :action Run<CR>
+nnoremap <leader>rd :action Debug<CR>
+nnoremap <leader>rb :action ToggleLineBreakpoint<CR>
+
+" IDE quality-of-life
+nnoremap <leader>w  :action SaveAll<CR>
+nnoremap <leader>q  :action CloseContent<CR>
+nnoremap <leader>/  :action CommentByLineComment<CR>
